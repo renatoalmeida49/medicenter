@@ -9,7 +9,28 @@
                     </div>
 
                     <div class="widget_body flex">
-                        <article>
+                        <div>
+                            <h2>Santa Casa</h2>
+                            <p>Avenida Alino Beco, 6969</p>
+                            <p>1234-5678</p>
+                            <p>Plano de Saúde</p>
+                        </div>
+
+                        <div>
+                            <h2>Unimed</h2>
+                            <p>Avenida Alino Beco, 6969</p>
+                            <p>1234-5678</p>
+                            <p>Plano de Saúde</p>
+                        </div>
+
+                        <div>
+                            <h2>Santa Juliana</h2>
+                            <p>Avenida Alino Beco, 6969</p>
+                            <p>1234-5678</p>
+                            <p>Plano de Saúde</p>
+                        </div>
+                        
+                        <!--<article>
                             <a href="">
                                 <div class="news_posted_at">12 DEC 12</div>
                                 <div class="news_comments">2</div>
@@ -72,7 +93,7 @@
                                     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
                                 </p>
                             </a>
-                        </article>
+                        </article>-->
                     </div>
                 </div>
             </section>
