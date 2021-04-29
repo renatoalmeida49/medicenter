@@ -14,10 +14,9 @@
                         <div class="mm_line"></div>
                     </div>
                     <ul>
-                        <li class="active"><a href="">HOME</a></li>
-                        <li><a href="">HOME</a></li>
-                        <li><a href="">HOME</a></li>
-                        <li><a href="">HOME</a></li>
+                        <li><router-link to="/">Início</router-link></li>
+                        <li><router-link to="/hospitais">Hospitais</router-link></li>
+                        <li><a href="">Sobre</a></li>
                         <li><a href="">HOME</a></li>
                         <li><a href="">HOME</a></li>
                     </ul>
@@ -44,6 +43,21 @@ export default {
 </script>
 
 <style scoped>
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+a.router-link-exact-active {
+    background-color: #39AAE1;
+    color: white;
+    border-radius: 6px;
+}
+
 /* HEADER */
 
 header {

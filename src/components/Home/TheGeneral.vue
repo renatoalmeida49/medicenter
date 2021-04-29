@@ -4,7 +4,7 @@
             <section>
                 <div class="widget">
                     <div class="widget_title">
-                        <div class="widget_title_text">Latest news</div>
+                        <div class="widget_title_text">Nossos hospitais</div>
                         <div class="widget_title_bar"></div>
                     </div>
 
