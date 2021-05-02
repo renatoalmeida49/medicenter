@@ -6,6 +6,7 @@
                     <div class="widget_title">
                         <div class="widget_title_text">Nossos hospitais</div>
                         <div class="widget_title_bar"></div>
+                        <slot name="button"></slot>
                     </div>
 
                     <div class="widget_body flex">
@@ -142,7 +143,7 @@
 
 <script>
 export default {
-    name: "TheGeneral"
+    name: "TheGeneral",
 }
 </script>
 
