@@ -20,6 +20,8 @@ export default {
 </script>
 
 <style>
+@import './assets/css/media-queries.css';
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
