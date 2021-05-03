@@ -15,6 +15,19 @@ export default {
   components: {
     TheHeader,
     TheFooter
+  },
+  methods: {
+    resize() {
+      window.addEventListener('resize', () => {
+        if(window.innerWidth > 600) {
+            if(document.querySelector(".menu nav ul").classList.contains('flex'))
+                document.querySelector(".menu nav ul").classList.remove('flex')
+        }
+      })
+    },
+    created() {
+      this.resize()
+    }
   }
 }
 </script>
@@ -24,19 +37,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 
 /* RESET */
@@ -51,7 +51,7 @@ export default {
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #fff;
+	background-color: #efefef;
 }
 
 img {
@@ -70,5 +70,4 @@ img {
 .height {
   min-height: calc(100vh - 133px - 164px);
 }
-
 </style>
