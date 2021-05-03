@@ -8,17 +8,16 @@
             </div>
             <div class="menu">
                 <nav>
-                    <div class="menuMobile">
+                    <div class="menuMobile" @click="menuMobile()">
                         <div class="mm_line"></div>
                         <div class="mm_line"></div>
                         <div class="mm_line"></div>
                     </div>
                     <ul>
                         <li><router-link to="/">Início</router-link></li>
-                        <li><router-link to="/hospitais">Hospitais</router-link></li>
+                        <li><a href="#hospitais">Hospitais</a></li>
+                        <li><a href="">Departamentos</a></li>
                         <li><a href="">Sobre</a></li>
-                        <li><a href="">HOME</a></li>
-                        <li><a href="">HOME</a></li>
                     </ul>
                 </nav>
             </div>
@@ -37,6 +36,11 @@ export default {
     data() {
         return {
             
+        }
+    },
+    methods: {
+        menuMobile() {
+            document.querySelector(".menu nav ul").classList.toggle('flex')
         }
     }
 }
@@ -116,4 +120,64 @@ nav a:hover {
 	height: 3px;
 }
 
+/* STATES */
+
+.flex {
+	display: flex;
+}
+
+@media (max-width: 916px) {
+	.container {
+		flex-direction: column;
+	}
+
+	#banner h1 {
+		max-width: 100%;
+		font-size: 2.81rem;
+	}
+
+	#banner h2 {
+		max-width: 75%;
+	}
+
+	.menu {
+		margin-top: 15px;
+		justify-content: center;
+	}
+}
+
+@media (max-width: 600px) {
+	header .container {
+		flex-direction: row;
+	}
+
+	#geral .container {
+		flex-direction: column;
+		padding: 0px;
+	}
+
+	nav ul {
+		flex-direction: column;
+		display: none;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		background-color: white;
+	}
+
+	header {
+		height: auto;
+		padding: 0px;
+	}
+
+	.logo {
+		padding: 20px;
+	}
+
+	.menuMobile {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+}
 </style>

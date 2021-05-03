@@ -1,5 +1,5 @@
 <template>
-    <section id="geral">
+    <section id="hospitais">
         <div class="container">
             <section>
                 <div class="widget">
@@ -216,17 +216,17 @@ export default {
 
 /* SECTION GERAL */
 
-#geral {
+#hospitais {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 }
 
-#geral section {
+#hospitais section {
 	flex: 2;
 }
 
-#geral aside {
+#hospitais aside {
 	flex: 1;
 }
 
@@ -264,70 +264,6 @@ export default {
 }
 
 /* GERAL SECTION */
-
-article {
-	flex: 1;
-	min-width: 300px;
-	margin: 5px;
-
-	box-shadow: 2px 2px 2px rgb(0 0 0 / 20%);
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid rgba(0 0 0 / 20%);
-
-	background: rgb(245, 244, 244);
-
-	cursor: pointer;
-}
-
-article a {
-	text-decoration: none;
-}
-
-article:hover {
-	background: #fff;
-}
-
-article .news_posted_at {
-	background-color: #2b4c99;
-	color: white;
-	font-size: 0.75rem;
-	padding: 10px;
-	margin-right: 2px;
-	display: inline-block;
-}
-
-article .news_comments {
-	background-color: #39AAE1;
-	color: white;
-	font-size: 0.75rem;
-	padding: 10px;
-	display: inline-block;
-}
-
-article .news_thumbnail {
-	margin-top: 30px;
-}
-
-article .news_thumbnail img {
-	height: auto;
-}
-
-article h2{
-	margin-top: 25px;
-	margin-bottom: 25px;
-	color: black;
-	font-weight: normal;
-	font-size: 1.43rem;
-}
-
-article p {
-	color: #5c5c5c;
-	font-size: 0.87rem;
-	line-height: 20px;
-	margin-bottom: 30px;
-}
-
 .flex {
 	display: flex;
 	flex-wrap: wrap;
@@ -468,5 +404,35 @@ form label {
 .hospital-city {
     display: flex;
     align-items: center;
+}
+
+@media (max-width: 916px) {
+	.container {
+		flex-direction: column;
+	}
+
+	#banner h1 {
+		max-width: 100%;
+		font-size: 2.81rem;
+	}
+
+	#banner h2 {
+		max-width: 75%;
+	}
+
+	.menu {
+		margin-top: 15px;
+		justify-content: center;
+	}
+}
+
+@media (max-width: 460px) {
+    .hospital-group {
+        flex-direction: column;
+    }
+
+    .hospital-group p {
+        margin: 5px 0;
+    }
 }
 </style>

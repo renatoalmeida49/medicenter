@@ -15,13 +15,24 @@ export default {
   components: {
     TheHeader,
     TheFooter
+  },
+  methods: {
+    resize() {
+      window.addEventListener('resize', () => {
+        if(window.innerWidth > 600) {
+            if(document.querySelector(".menu nav ul").classList.contains('flex'))
+                document.querySelector(".menu nav ul").classList.remove('flex')
+        }
+      })
+    },
+    created() {
+      this.resize()
+    }
   }
 }
 </script>
 
 <style>
-@import './assets/css/media-queries.css';
-
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -59,5 +70,4 @@ img {
 .height {
   min-height: calc(100vh - 133px - 164px);
 }
-
 </style>
