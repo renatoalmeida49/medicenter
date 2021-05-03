@@ -1,35 +1,35 @@
 <template>
     <section id="banner">
         <div class="container column">
-            <h1>Top notch experience</h1>
-            <h2>Medicenter is a renposive template perfect for all screen sizes.</h2>
+            <h1>Medicenter</h1>
+            <h2>Registrando e informando sobre os hospitais que possuem atendimento de emergência.</h2>
 
             <div class="banner_options">
             <div class="banner1">
-                <h3>Emergency Case</h3>
+                <h3>Casos de emergência</h3>
                 <p class="banner_desc">Algum texto qualquer</p>
-                <a href="">Read more</a>
+                <a href="">Leia mais</a>
             </div>
 
             <div class="banner2">
-                <h3>Doctors Timetable</h3>
+                <h3>Horários dos médicos</h3>
                 <p class="banner_desc">Algum texto qualquer</p>
-                <a href="">Read more</a>
+                <a href="">Leia mais</a>
             </div>
             
             <div class="banner3">
-                <h3>Opening Hours</h3>
+                <h3>Horário de funcionamento</h3>
                 
                 <div class="period">
-                <div>Monday - Friday</div>
+                <div>Segunda - Sexta</div>
                 <div>8.00 - 17.00</div>
                 </div>
                 <div class="period">
-                <div>Saturday</div>
+                <div>Sábado</div>
                 <div>9.30 - 17.30</div>
                 </div>
                 <div class="period">
-                <div>Sunday</div>
+                <div>Domingo</div>
                 <div>9.30 - 15.00</div>
                 </div>
             </div>
