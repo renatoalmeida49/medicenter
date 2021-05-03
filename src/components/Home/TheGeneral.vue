@@ -10,91 +10,15 @@
                     </div>
 
                     <div class="widget_body flex">
-                        <div>
-                            <h2>Santa Casa</h2>
-                            <p>Avenida Alino Beco, 6969</p>
-                            <p>1234-5678</p>
-                            <p>Plano de Saúde</p>
+                        <div
+                            v-for="hospital, id in baskets"
+                            :key="id"
+                        >
+                            <h2>{{hospital.nome}}</h2>
+                            <p>{{hospital.endereco}}</p>
+                            <p>{{hospital.cep}}</p>
+                            <p>{{hospital.estado}}</p>
                         </div>
-
-                        <div>
-                            <h2>Unimed</h2>
-                            <p>Avenida Alino Beco, 6969</p>
-                            <p>1234-5678</p>
-                            <p>Plano de Saúde</p>
-                        </div>
-
-                        <div>
-                            <h2>Santa Juliana</h2>
-                            <p>Avenida Alino Beco, 6969</p>
-                            <p>1234-5678</p>
-                            <p>Plano de Saúde</p>
-                        </div>
-                        
-                        <!--<article>
-                            <a href="">
-                                <div class="news_posted_at">12 DEC 12</div>
-                                <div class="news_comments">2</div>
-                                
-                                <div class="news_thumbnail">
-                                    <img src="@/assets/doctor.jpg" />
-                                </div>
-                                <h2>
-                                    Lorem ipsum dolor sit amat velum
-                                </h2>
-                                <p>
-                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-                                </p>
-                            </a>
-                        </article>
-                        <article>
-                            <a href="">
-                                <div class="news_posted_at">12 DEC 12</div>
-                                <div class="news_comments">2</div>
-
-                                <div class="news_thumbnail">
-                                    <img src="@/assets/doctor.jpg" />
-                                </div>
-                                <h2>
-                                    Lorem ipsum dolor sit amat velum
-                                </h2>
-                                <p>
-                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-                                </p>
-                            </a>
-                        </article>
-                        <article>
-                            <a href="">
-                                <div class="news_posted_at">12 DEC 12</div>
-                                <div class="news_comments">2</div>
-                                
-                                <div class="news_thumbnail">
-                                    <img src="@/assets/doctor.jpg" />
-                                </div>
-                                <h2>
-                                    Lorem ipsum dolor sit amat velum
-                                </h2>
-                                <p>
-                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-                                </p>
-                            </a>
-                        </article>
-                        <article>
-                            <a href="">
-                                <div class="news_posted_at">12 DEC 12</div>
-                                <div class="news_comments">2</div>
-
-                                <div class="news_thumbnail">
-                                    <img src="@/assets/doctor.jpg" />
-                                </div>
-                                <h2>
-                                    Lorem ipsum dolor sit amat velum
-                                </h2>
-                                <p>
-                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-                                </p>
-                            </a>
-                        </article>-->
                     </div>
                 </div>
             </section>
@@ -144,6 +68,35 @@
 <script>
 export default {
     name: "TheGeneral",
+    data() {
+        return {
+            baskets: [],
+            hospitais: []
+        }
+    },
+    methods: {
+        async getHospitais() {
+            await fetch('https://getpantry.cloud/apiv1/pantry/e79d83be-93de-41de-8dff-60da1c35938f')
+                .then(data => data.json())
+                .then(json => {
+                    this.hospitais = json.baskets
+                })
+
+            this.getBasket()
+        },
+        getBasket() {
+            this.hospitais.forEach(element => {
+                fetch(`https://getpantry.cloud/apiv1/pantry/e79d83be-93de-41de-8dff-60da1c35938f/basket/${element}`)
+                    .then(data => data.json())
+                    .then(json => {
+                        this.baskets.push(json)
+                    })
+            })
+        }
+    },
+    created() {
+        this.getHospitais()
+    }
 }
 </script>
 
@@ -266,5 +219,6 @@ article p {
 .flex {
 	display: flex;
 	flex-wrap: wrap;
+    flex-direction: column;
 }
 </style>
