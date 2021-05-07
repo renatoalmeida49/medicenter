@@ -32,8 +32,6 @@ Para compilar o prjeto execute o comando abaixo e clique no link gerado:
 npm run serve
 ```
 
-
-### Lints and fixes files
-```
-npm run lint
-```
+## TODO
+:white_large_square: Completa implementação do CRUD  
+:white_large_square: Correção de pequenos problemas de responsividade
