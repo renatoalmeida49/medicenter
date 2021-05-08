@@ -35,3 +35,4 @@ npm run serve
 ## TODO
 :white_large_square: Completa implementação do CRUD  
 :white_large_square: Correção de pequenos problemas de responsividade
+:white_large_square: Utilização de VUEX para armazenar dados da API
