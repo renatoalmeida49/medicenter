@@ -7,7 +7,7 @@
                         <div class="widget_title_text">Nossos hospitais</div>
                         <div class="widget_title_bar"></div>
                         
-                        <button @click="openModal = !openModal">Novo hospital</button>
+                        <button class="button" @click="openModal = !openModal">Novo hospital</button>
 
                         <Modal v-model="openModal">
                             <template v-slot:header>
@@ -31,6 +31,19 @@
                         >
                             <h2><img src="@/assets/icons/hospital.png" height="64" />{{hospital.nome}}</h2>
                             <p class="hospital-address"><img src="@/assets/icons/address.png" height="16" />{{hospital.endereco}}</p>
+                            
+                            <button class="hospital__options" @click="menuOptions($event)">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </button>
+
+                            <div class="hospital__options-menu">
+                                <ul>
+                                    <li>Editar</li>
+                                    <li @click="excluir(hospital.id)">Excluir</li>
+                                </ul>
+                            </div>
 
                             <div class="hospital-group">
                                 <p>{{hospital.cep}}</p>
@@ -130,6 +143,25 @@ export default {
             if(event.target === event.currentTarget)
                 this.modal = false
         },
+        menuOptions(event) {
+            if(event.target.classList.contains('dot')) {
+                event.target.parentElement.nextSibling.classList.toggle('flex')
+            } else {
+                event.target.nextSibling.classList.toggle('flex')
+            }
+        },
+        excluir(id) {
+            fetch(`https://getpantry.cloud/apiv1/pantry/e79d83be-93de-41de-8dff-60da1c35938f/basket/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8'
+                }
+            })
+                .then(() => {
+                    this.baskets = []
+                    this.getHospitais()
+                })
+        }
     },
     watch: {
         openModal() {
@@ -144,6 +176,23 @@ export default {
 </script>
 
 <style scoped>
+.button {
+    display: block;
+	padding: 15px;
+	text-transform: uppercase;
+    background-color: #39AAE1;
+	color: white;
+	border-radius: 6px;
+    border: 1px solid transparent;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #fff;
+    color: #39AAE1;
+    border: 1px solid #39AAE1;
+}
 
 /* SECTION GERAL */
 
@@ -208,6 +257,54 @@ export default {
     margin: 5px 0;
     padding: 1rem;
     border-radius: 4px;
+    position: relative;
+}
+
+.hospital__options {
+    position: absolute;
+    display: flex;
+    top: 10%;
+    right: 2%;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2c3e50;
+    margin: 3px;
+}
+
+.hospital__options-menu {
+    display: none;
+    position: absolute;
+    top: 22%;
+    right: 2%;
+    text-align: right;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;;
+}
+
+.hospital__options-menu ul {
+    list-style: none;
+    font-weight: 700;
+}
+
+.hospital__options-menu li {
+    padding: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.hospital__options-menu li:hover {
+    transform: scale(1.05);
+}
+
+.flex {
+    display: flex;
 }
 
 .hospital img {
