@@ -5,7 +5,7 @@
         <slot name="body"></slot>
         <slot name="footer"></slot>
 
-        <button @click="close()">Cancelar</button>
+    <button class="button" @click="close()">Cancelar</button>
       </div>
   </div>
 </template>
@@ -62,25 +62,6 @@ export default {
 
 <style scoped>
 /* MODAL */
-
-button {
-    display: block;
-	padding: 15px;
-	text-transform: uppercase;
-    background-color: #39AAE1;
-	color: white;
-	border-radius: 6px;
-    border: 1px solid transparent;
-    margin: 5px 0;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #fff;
-    color: #39AAE1;
-    border: 1px solid #39AAE1;
-}
-
 .modal::before {
     content: '';
     position: fixed;
@@ -89,6 +70,7 @@ button:hover {
     width: 100%;
     height: 100vh;
     background: rgba(0, 0, 0, .5);
+    z-index: 2;
 }
 
 .modal {
@@ -97,11 +79,12 @@ button:hover {
     left: 0;
     width: 100%;
     padding: 60px;
+    z-index: 2;
 }
 
 .modal__container {
     position: relative;
-    z-index: 100;
+    z-index: 2;
     background: #fff;
     padding: 20px;
     margin: auto;

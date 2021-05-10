@@ -144,6 +144,7 @@ export default {
                 this.modal = false
         },
         menuOptions(event) {
+            console.log("clicou")
             if(event.target.classList.contains('dot')) {
                 event.target.parentElement.nextSibling.classList.toggle('flex')
             } else {
@@ -175,7 +176,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .button {
     display: block;
 	padding: 15px;
@@ -258,7 +259,7 @@ export default {
     padding: 1rem;
     border-radius: 4px;
     position: relative;
-    z-index: -1;
+    z-index: 1;
 }
 
 .hospital__options {
