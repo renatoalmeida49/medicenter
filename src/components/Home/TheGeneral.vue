@@ -258,6 +258,7 @@ export default {
     padding: 1rem;
     border-radius: 4px;
     position: relative;
+    z-index: -1;
 }
 
 .hospital__options {

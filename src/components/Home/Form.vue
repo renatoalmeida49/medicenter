@@ -43,7 +43,7 @@
     <label for="info">Informações adicionais</label>
     <textarea v-model="hospital.informacoes" name="info" id="info" rows="8"></textarea>
 
-    <button @click.prevent="adicionar()">Adicionar</button>
+    <button class="button" @click.prevent="adicionar()">Adicionar</button>
 </form>
 </template>
 
