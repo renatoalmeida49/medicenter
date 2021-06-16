@@ -16,8 +16,6 @@
                     <ul>
                         <li><router-link to="/">Início</router-link></li>
                         <li><a href="#hospitais">Hospitais</a></li>
-                        <li><a href="">Departamentos</a></li>
-                        <li><a href="">Sobre</a></li>
                     </ul>
                 </nav>
             </div>

@@ -20,7 +20,7 @@
                 </div>
             </section>
 
-            <aside>
+            <!-- <aside>
                 <div>
                     <div class="widget_title">
                         <div class="widget_title_text">Departments</div>
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-            </aside>
+            </aside> -->
         </div>
     </section>
 </template>

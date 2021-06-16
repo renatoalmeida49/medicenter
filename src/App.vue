@@ -48,6 +48,10 @@ export default {
 	padding: 0;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	background-color: #efefef;
 }
