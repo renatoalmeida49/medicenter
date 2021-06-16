@@ -153,7 +153,4 @@ export default {
 	height: 35px;
 	align-items: center;
 }
-
-
-
 </style>
