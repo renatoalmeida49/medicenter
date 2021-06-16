@@ -1,55 +1,59 @@
 <template>
-<form method="POST">
-    <div class="form-group fg1">
-        <label for="nome">Nome</label>
-        <input v-model="hospital.nome" type="text" name="nome" id="nome" required />
+<div>
+    <h1>Adicionar hospital</h1>
+    <form method="POST">
+        <div class="form-group fg1">
+            <label for="nome">Nome</label>
+            <input v-model="hospital.nome" type="text" name="nome" id="nome" required />
 
-        <label for="cep">CEP</label>
-        <input v-model="hospital.cep" type="text" name="cep" id="cep" />
+            <label for="cep">CEP</label>
+            <input v-model="hospital.cep" type="text" name="cep" id="cep" />
 
-        <label for="endereco">Endereço</label>
-        <input v-model="hospital.endereco" type="text" name="endereco" id="endereco" />
-    </div>
-    
-    <div class="form-group fg2">
-        <div>
-            <label for="bairro">Bairro</label>
-            <input v-model="hospital.bairro" type="text" name="bairro" id="bairro" />
+            <label for="endereco">Endereço</label>
+            <input v-model="hospital.endereco" type="text" name="endereco" id="endereco" />
+        </div>
+        
+        <div class="form-group fg2">
+            <div>
+                <label for="bairro">Bairro</label>
+                <input v-model="hospital.bairro" type="text" name="bairro" id="bairro" />
+            </div>
+
+            <div>
+                <label for="cidade">Cidade</label>
+                <input v-model="hospital.cidade" type="text" name="cidade" id="cidade" />
+            </div>
+
+            <div>
+                <label for="estado">Estado</label>
+                <input v-model="hospital.estado" type="text" name="estado" id="estado" />
+            </div>
         </div>
 
-        <div>
-            <label for="cidade">Cidade</label>
-            <input v-model="hospital.cidade" type="text" name="cidade" id="cidade" />
+        <div class="form-group fg2">
+            <div>
+                <label for="lat">Lat</label>
+                <input v-model="hospital.lat" type="text" name="lat" id="lat" />
+            </div>
+
+            <div>
+                <label for="long">Long</label>
+                <input v-model="hospital.long" type="text" name="long" id="long" />
+            </div>
         </div>
 
-        <div>
-            <label for="estado">Estado</label>
-            <input v-model="hospital.estado" type="text" name="estado" id="estado" />
-        </div>
-    </div>
+        <label for="info">Informações adicionais</label>
+        <textarea v-model="hospital.informacoes" name="info" id="info" rows="8"></textarea>
 
-    <div class="form-group fg2">
-        <div>
-            <label for="lat">Lat</label>
-            <input v-model="hospital.lat" type="text" name="lat" id="lat" />
-        </div>
-
-        <div>
-            <label for="long">Long</label>
-            <input v-model="hospital.long" type="text" name="long" id="long" />
-        </div>
-    </div>
-
-    <label for="info">Informações adicionais</label>
-    <textarea v-model="hospital.informacoes" name="info" id="info" rows="8"></textarea>
-
-    <button class="button" @click.prevent="adicionar()">Adicionar</button>
-</form>
+        <button class="button" @click.prevent="adicionar()">Adicionar</button>
+    </form>
+</div>
 </template>
 
 <script>
+
 export default {
-    name: "Form",
+    name: "AdicionarHospital",
     data() {
         return {
             hospital: {
@@ -78,8 +82,7 @@ export default {
                     'Content-Type': 'application/json; charset=UTF-8'
                 }
             })
-                .then(data => {
-                    console.log(data)
+                .then(() => {
                     this.reset()
                 })
         },
@@ -95,7 +98,7 @@ export default {
             this.hospital.long = ''
             this.hospital.informacoes = ''
 
-            this.$emit("newHospital")
+            this.$emit("input")
         }
     }
 }

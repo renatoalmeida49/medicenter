@@ -48,9 +48,11 @@ export default {
 	padding: 0;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
-	margin: 0;
-	padding: 0;
 	background-color: #efefef;
 }
 
