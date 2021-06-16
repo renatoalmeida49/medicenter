@@ -9,18 +9,7 @@
                         
                         <button class="button" @click="openModal = !openModal">Novo hospital</button>
 
-                        <Modal v-model="openModal">
-                            <template v-slot:header>
-                                <h1>Adicionar hospital</h1>
-                            </template>
-
-                            <template v-slot:body>
-                                <Form @newHospital="newHospital"/>
-                            </template>
-
-                            <template v-slot:footer>
-                            </template>
-                        </Modal>
+                        <Modal v-model="openModal" typeComponent="AdicionarHospital"/>
                     </div>
 
                     <div class="widget_body flex">
@@ -101,14 +90,12 @@
 </template>
 
 <script>
-import Modal from "@/components/Layout/Modal.vue"
-import Form from "@/components/Home/Form.vue"
+import Modal from "@/components/Layout/Modais/Modal.vue"
 
 export default {
     name: "TheGeneral",
     components: {
         Modal,
-        Form
     },
     data() {
         return {
