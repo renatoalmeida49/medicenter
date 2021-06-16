@@ -82,8 +82,7 @@ export default {
                     'Content-Type': 'application/json; charset=UTF-8'
                 }
             })
-                .then(data => {
-                    console.log(data)
+                .then(() => {
                     this.reset()
                 })
         },
@@ -99,7 +98,7 @@ export default {
             this.hospital.long = ''
             this.hospital.informacoes = ''
 
-            this.$emit("newHospital")
+            this.$emit("input")
         }
     }
 }
